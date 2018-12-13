@@ -1,0 +1,116 @@
+/*variable*/
+$colors: (
+    primary:#9B0230,
+    accent: white,
+    primary-light: lighten(#9B0230, 40%),
+    primary-dark: darken(#9B0230, 40%),
+
+   
+);
+
+$border_radius: 15px;
+$thin_padding:15px;
+
+/*function to hold something
+instead background-color: map-get($colors , primary );
+*/ 
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+
+body, html {
+    height:100%;
+}
+
+body {
+    font-family: Roboto;
+    margin:0;
+
+    .hero_background {
+        clip-path: polygon(-12px 100%,100% 87%,100% 0px,0px 0px);
+        background-color: color(primary);
+        min-width:100%;
+        min-height:100%;
+        position: absolute;
+        z-index:-1;
+        
+    }
+
+    header a img {
+        color: color(accent);;
+        padding: $thin_padding;
+        display:block;
+        width:20%;
+    }
+
+    main {
+        section.card {
+            background-color:color(accent);
+            padding:$thin_padding;
+            border: 1px solid white;
+            border-radius: $border_radius;
+            box-shadow: 0 10px 30px rgba(0,0,0, 0.2);
+            width:80%;
+            margin: 0 auto;
+
+            ul {
+                list-style-type: none;
+                margin:0;
+                padding:0;
+            }
+
+            li {
+                margin-bottom:10px;
+
+                span {
+                    position: absolute;
+                    content: '';
+                    width:20px;
+                    height:20px;
+                    background-color: color(primary-light);
+                    border-radius: 50%;
+                    margin-right:10px;
+                }
+
+                strong {
+                    display:inline-block;
+                    margin-left: max(40px);
+                    /*margin-top: 10px;*/
+            
+                }
+            }
+        }
+
+    }
+
+    section.primary_menu{
+        color: color(accent);
+        padding: $thin_padding;
+        text-align:center;
+
+        h1 {
+            font-size:3em;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        p{
+            font-size: 1.4em;
+        }
+
+        a {
+            color:color(primary-dark);
+            border-radius: $border_radius;
+            text-transform: uppercase;
+            background-color: color(accent);
+            display:block;
+            margin:50px auto 0 auto;
+            text-decoration:none;
+            padding: 20px 30px;
+            width:30%;
+            
+        }
+
+    }
+}
