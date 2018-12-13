@@ -8,7 +8,7 @@
          <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="hero_background"></div>  
+        <div id="polygon" class="hero_background"></div>  
         <header>
             <a href="https://hollywoodbranded.com/"> <img src="https://hollywoodbranded.com/wp-content/uploads/2017/12/hollywoodbrandedlogo.png" alt="Hollywood Branded"></a>
         </header>
@@ -62,4 +62,14 @@
             </section>
         </main>
     </body>
+    <script>
+        (function(){
+            let bodyHeight = document.body.clientHeight;
+            let bodyWidth = document.body.clientWidth;
+            let polygon = document.getElementById("polygon");
+            if (bodyWidth <= 450){
+                polygon.style.height = bodyHeight + "px";
+            }
+        }());
+    </script>
     </html>
